@@ -1,0 +1,18 @@
+{
+  "somatic_wf.tumor_bam": "pipelines/brca/wdl/data/test/bam/BRCA_russco_5241_ffpe_cr.coord_sorted.bam",
+  "somatic_wf.tumor_bai": "pipelines/brca/wdl/data/test/bam/BRCA_russco_5241_ffpe_cr.coord_sorted.bai",
+  "somatic_wf.normal_bam": "pipelines/brca/wdl/data/test/bam/BRCA_russco_5241_leu.coord_sorted.bam",
+  "somatic_wf.normal_bai": "pipelines/brca/wdl/data/test/bam/BRCA_russco_5241_leu.coord_sorted.bai",
+
+  "somatic_wf.tumor_sample_name": "BRCA_russco_5241_ffpe_cr",
+  "somatic_wf.normal_sample_name": "BRCA_russco_5241_leu",
+
+  "somatic_wf.reference_fasta": "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna",
+  "somatic_wf.reference_fai": "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna.fai",
+  "somatic_wf.reference_dict": "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.dict",
+
+  "somatic_wf.target_regions": "pipelines/brca/wdl/data/test/target_regions/BRCA.bed",
+
+  "somatic_wf.threads": 2,
+  "somatic_wf.ram_g": 6
+}

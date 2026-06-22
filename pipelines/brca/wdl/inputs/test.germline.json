@@ -1,0 +1,14 @@
+{
+  "germline_wf.coord_sorted_bam": "pipelines/brca/wdl/data/test/bam/BRCA_russco_5241_ffpe_cr.coord_sorted.bam",
+  "germline_wf.coord_sorted_bai": "pipelines/brca/wdl/data/test/bam/BRCA_russco_5241_ffpe_cr.coord_sorted.bai",
+
+  "germline_wf.sample_name": "BRCA_russco_5241_ffpe_cr",
+
+  "germline_wf.reference_fasta": "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna",
+  "germline_wf.reference_fai": "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna.fai",
+
+  "germline_wf.target_regions": "pipelines/brca/wdl/data/test/target_regions/BRCA.bed",
+
+  "germline_wf.threads": 2,
+  "germline_wf.ram_g": 6
+}

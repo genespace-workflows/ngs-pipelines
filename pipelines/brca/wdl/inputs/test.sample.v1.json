@@ -1,0 +1,22 @@
+{
+  "BRCA_wf.r1_fastq": "pipelines/brca/wdl/data/test/fastq/202604171709_AB01231001009_2P250825048UG1c2664BX_B_NGS244_BRCA_russco_5308_ffpe_cr_L00_R1.fq.gz",
+  "BRCA_wf.r2_fastq": "pipelines/brca/wdl/data/test/fastq/202604171709_AB01231001009_2P250825048UG1c2664BX_B_NGS244_BRCA_russco_5308_ffpe_cr_L00_R2.fq.gz",
+
+  "BRCA_wf.sample_name": "BRCA_russco_5308_ffpe_cr",
+
+  "BRCA_wf.reference_fasta": "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna",
+  "BRCA_wf.reference_fai": "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna.fai",
+
+  "BRCA_wf.bwa_index": [
+    "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna.bwt",
+    "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna.pac",
+    "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna.ann",
+    "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna.amb",
+    "pipelines/brca/wdl/data/test/reference/GRCh38/GCA_000001405.15_GRCh38_no_alt_analysis_set.chr13_chr17.fna.sa"
+  ],
+
+  "BRCA_wf.target_regions": "pipelines/brca/wdl/data/test/target_regions/BRCA.bed",
+
+  "BRCA_wf.threads": 2,
+  "BRCA_wf.ram_g": 4
+}
