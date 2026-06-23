@@ -2,9 +2,7 @@
 
 #set -euo pipefail
 #set -x
-
-java -jar /opt/cromwell/womtool.jar \
-  validate pipelines/brca/wdl/workflows/germline.wdl
+CROMWELL_JAR="/opt/cromwell/cromwell.jar"
 
 wd=$(pwd)
 
@@ -12,7 +10,7 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
 java -Dconfig.file=conf/cromwell/local.conf \
-  -jar /opt/cromwell/cromwell.jar \
+  -jar $CROMWELL_JAR \
   run pipelines/brca/wdl/workflows/germline.wdl \
   -i pipelines/brca/wdl/inputs/test.germline.json \
   -o pipelines/brca/wdl/options/local.options.json \

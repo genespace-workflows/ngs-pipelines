@@ -17,10 +17,7 @@ else
 
 fi
 
-
-
-java -jar /opt/cromwell/womtool.jar \
-  validate pipelines/brca/wdl/workflows/preprocess.wdl
+CROMWELL_JAR="/opt/cromwell/cromwell.jar"
 
 wd=$(pwd)
 
@@ -28,7 +25,7 @@ REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
 java -Dconfig.file=conf/cromwell/local.conf \
-  -jar /opt/cromwell/cromwell.jar \
+  -jar $CROMWELL_JAR \
   run pipelines/brca/wdl/workflows/preprocess.wdl \
   -i $inputs \
   -o pipelines/brca/wdl/options/local.options.json \
