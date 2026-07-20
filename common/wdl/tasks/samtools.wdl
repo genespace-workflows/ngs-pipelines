@@ -15,17 +15,19 @@ task SamtoolsSamToBam {
 
   command <<<
 
+    mkdir samtools
+
     samtools view \
       -@ ~{threads} \
       -b \
-      -o ~{sample_name}.bam \
+      -o samtools/~{sample_name}.bam \
       ~{sam}
 
   >>>
 
   output {
 
-    File bam = "~{sample_name}.bam"
+    File bam = "samtools/~{sample_name}.bam"
 
   }
 
@@ -55,17 +57,19 @@ task SamtoolsIndex {
 
   command <<<
 
+    mkdir samtools
+
     ln -s ~{bam}
     samtools index \
       -@ ~{threads} \
       $(basename ~{bam}) \
-      ~{out_path}
+      samtools/~{out_path}
 
   >>>
 
   output {
 
-    File bai = out_path
+    File bai = "samtools/~{out_path}"
 
   }
 
@@ -94,16 +98,18 @@ task SamtoolsSortByCoordinate {
 
   command <<<
 
+    mkdir samtools
+
     samtools sort \
       -@ ~{threads} \
-      -o ~{sample_name}.coord_sorted.bam \
+      -o samtools/~{sample_name}.coord_sorted.bam \
       ~{bam}
 
   >>>
 
   output {
 
-    File sorted_bam = "~{sample_name}.coord_sorted.bam"
+    File sorted_bam = "samtools/~{sample_name}.coord_sorted.bam"
 
   }
 
@@ -133,17 +139,19 @@ task SamtoolsSortByName {
 
   command <<<
 
+    mkdir samtools
+
     samtools sort \
       -@ ~{threads} \
       -n \
-      -o ~{sample_name}.name_sorted.bam \
+      -o samtools/~{sample_name}.name_sorted.bam \
       ~{bam}
 
   >>>
 
   output {
 
-    File name_sorted_bam = "~{sample_name}.name_sorted.bam"
+    File name_sorted_bam = "samtools/~{sample_name}.name_sorted.bam"
 
   }
 
@@ -175,18 +183,20 @@ task SamtoolsDepth {
 
   command <<<
 
+    mkdir samtools
+
     samtools depth \
       -@ ~{threads} \
       -a \
       -b ~{targets_bed} \
       ~{bam} \
-      > ~{sample_name}.samtools.depth.tsv
+      > samtools/~{sample_name}.samtools.depth.tsv
 
   >>>
 
   output {
 
-    File depth_tsv = "~{sample_name}.samtools.depth.tsv"
+    File depth_tsv = "samtools/~{sample_name}.samtools.depth.tsv"
 
   }
 

@@ -21,6 +21,8 @@
 
   "BRCA_full_wf.target_regions": "pipelines/brca/wdl/data/test/target_regions/BRCA.bed",
 
+  "BRCA_full_wf.vep_cache_dir": "pipelines/brca/wdl/data/test/vep_cache.tar.gz",
+
   "BRCA_full_wf.threads": 2,
   "BRCA_full_wf.ram_g": 6
 }

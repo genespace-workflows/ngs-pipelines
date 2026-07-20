@@ -25,6 +25,8 @@ task BwaMemPE {
 
   command <<<
 
+    mkdir bwa-mem
+
     ln -s ~{reference_fasta} .
     for file in ~{sep=' ' bwa_index}; do
       ln -s $file .
@@ -46,13 +48,13 @@ task BwaMemPE {
       $(basename ~{reference_fasta}) \
       ~{r1_fastq} \
       ~{r2_fastq} \
-      > ~{sample_name}.bwa_mem.sam
+      > bwa-mem/~{sample_name}.bwa_mem.sam
 
   >>>
 
   output {
 
-    File sam = "~{sample_name}.bwa_mem.sam"
+    File sam = "bwa-mem/~{sample_name}.bwa_mem.sam"
 
   }
 

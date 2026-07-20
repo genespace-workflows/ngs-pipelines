@@ -23,6 +23,8 @@ task DeepVariantGermline {
 
   command <<<
 
+    mkdir deepvariant/
+
     BAM=$(basename ~{bam})
     REF=$(basename ~{reference_fasta})
 
@@ -37,19 +39,19 @@ task DeepVariantGermline {
       --ref=$REF \
       --reads=$BAM \
       --regions=~{targets_bed} \
-      --output_vcf=~{sample_name}.deepvariant.vcf.gz \
-      --output_gvcf=~{sample_name}.deepvariant.g.vcf.gz \
+      --output_vcf=deepvariant/~{sample_name}.deepvariant.vcf.gz \
+      --output_gvcf=deepvariant/~{sample_name}.deepvariant.g.vcf.gz \
       --num_shards=~{threads}
 
   >>>
 
   output {
 
-    File vcf_gz = "~{sample_name}.deepvariant.vcf.gz"
-    File vcf_gz_tbi = "~{sample_name}.deepvariant.vcf.gz.tbi"
+    File vcf_gz = "deepvariant/~{sample_name}.deepvariant.vcf.gz"
+    File vcf_gz_tbi = "deepvariant/~{sample_name}.deepvariant.vcf.gz.tbi"
 
-    File gvcf_gz = "~{sample_name}.deepvariant.g.vcf.gz"
-    File gvcf_gz_tbi = "~{sample_name}.deepvariant.g.vcf.gz.tbi"
+    File gvcf_gz = "deepvariant/~{sample_name}.deepvariant.g.vcf.gz"
+    File gvcf_gz_tbi = "deepvariant/~{sample_name}.deepvariant.g.vcf.gz.tbi"
 
   }
 

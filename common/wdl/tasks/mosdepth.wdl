@@ -18,6 +18,8 @@ task MosdepthByTargets {
 
   command <<<
 
+    mkdir mosdepth
+
     BAM=$(basename ~{bam})
 
     ln -s ~{bam} $BAM
@@ -27,30 +29,30 @@ task MosdepthByTargets {
       --thresholds ~{thresholds} \
       --threads ~{threads} \
       --by ~{targets_bed} \
-      ~{sample_name}.mosdepth \
+      mosdepth/~{sample_name}.mosdepth \
       $BAM
 
-    mv ~{sample_name}.mosdepth.mosdepth.summary.txt ~{sample_name}.mosdepth.summary.txt
-    mv ~{sample_name}.mosdepth.mosdepth.global.dist.txt ~{sample_name}.mosdepth.global.dist.txt
-    mv ~{sample_name}.mosdepth.mosdepth.region.dist.txt ~{sample_name}.mosdepth.region.dist.txt
+    mv mosdepth/~{sample_name}.mosdepth.mosdepth.summary.txt mosdepth/~{sample_name}.mosdepth.summary.txt
+    mv mosdepth/~{sample_name}.mosdepth.mosdepth.global.dist.txt mosdepth/~{sample_name}.mosdepth.global.dist.txt
+    mv mosdepth/~{sample_name}.mosdepth.mosdepth.region.dist.txt mosdepth/~{sample_name}.mosdepth.region.dist.txt
 
   >>>
 
   output {
 
-    File summary = "~{sample_name}.mosdepth.summary.txt"
+    File summary = "mosdepth/~{sample_name}.mosdepth.summary.txt"
 
-    File regions_bed_gz = "~{sample_name}.mosdepth.regions.bed.gz"
-    File regions_bed_gz_csi = "~{sample_name}.mosdepth.regions.bed.gz.csi"
+    File regions_bed_gz = "mosdepth/~{sample_name}.mosdepth.regions.bed.gz"
+    File regions_bed_gz_csi = "mosdepth/~{sample_name}.mosdepth.regions.bed.gz.csi"
 
-    File thresholds_bed_gz = "~{sample_name}.mosdepth.thresholds.bed.gz"
-    File thresholds_bed_gz_csi = "~{sample_name}.mosdepth.thresholds.bed.gz.csi"
+    File thresholds_bed_gz = "mosdepth/~{sample_name}.mosdepth.thresholds.bed.gz"
+    File thresholds_bed_gz_csi = "mosdepth/~{sample_name}.mosdepth.thresholds.bed.gz.csi"
 
-    File per_base_bed_gz = "~{sample_name}.mosdepth.per-base.bed.gz"
-    File per_base_bed_gz_csi = "~{sample_name}.mosdepth.per-base.bed.gz.csi"
+    File per_base_bed_gz = "mosdepth/~{sample_name}.mosdepth.per-base.bed.gz"
+    File per_base_bed_gz_csi = "mosdepth/~{sample_name}.mosdepth.per-base.bed.gz.csi"
 
-    File global_dist = "~{sample_name}.mosdepth.global.dist.txt"
-    File region_dist = "~{sample_name}.mosdepth.region.dist.txt"
+    File global_dist = "mosdepth/~{sample_name}.mosdepth.global.dist.txt"
+    File region_dist = "mosdepth/~{sample_name}.mosdepth.region.dist.txt"
 
   }
 

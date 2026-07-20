@@ -27,6 +27,8 @@ task Mutect2TumorNormal {
 
   command <<<
 
+    mkdir mutect2
+
     TUMOR_BAM=$(basename ~{tumor_bam})
     TUMOR_BAI=$(basename ~{tumor_bai})
     NORMAL_BAM=$(basename ~{normal_bam})
@@ -52,15 +54,15 @@ task Mutect2TumorNormal {
       -I $NORMAL_BAM \
       -normal ~{normal_sample_name} \
       -L ~{target_regions} \
-      -O ~{output_prefix}.mutect2.vcf.gz
+      -O mutect2/~{output_prefix}.mutect2.vcf.gz
 
   >>>
 
   output {
 
-    File vcf = "~{output_prefix}.mutect2.vcf.gz"
-    File vcf_index = "~{output_prefix}.mutect2.vcf.gz.tbi"
-    File stats = "~{output_prefix}.mutect2.vcf.gz.stats"
+    File vcf = "mutect2/~{output_prefix}.mutect2.vcf.gz"
+    File vcf_index = "mutect2/~{output_prefix}.mutect2.vcf.gz.tbi"
+    File stats = "mutect2/~{output_prefix}.mutect2.vcf.gz.stats"
 
   }
 
@@ -94,18 +96,20 @@ task FilterMutectCalls {
 
   command <<<
 
+    mkdir mutect2
+
     gatk --java-options "-Xmx~{ram_g}G" FilterMutectCalls \
       -R ~{reference_fasta} \
       -V ~{vcf} \
       --stats ~{stats} \
-      -O ~{output_prefix}.mutect2.filtered.vcf.gz
+      -O mutect2/~{output_prefix}.mutect2.filtered.vcf.gz
 
   >>>
 
   output {
 
-    File vcf_filtered = "~{output_prefix}.mutect2.filtered.vcf.gz"
-    File vcf_filtered_index = "~{output_prefix}.mutect2.filtered.vcf.gz.tbi"
+    File vcf_filtered = "mutect2/~{output_prefix}.mutect2.filtered.vcf.gz"
+    File vcf_filtered_index = "mutect2/~{output_prefix}.mutect2.filtered.vcf.gz.tbi"
 
   }
 

@@ -26,15 +26,20 @@ task Fastp {
     --json ~{sample_name}.fastp.json \
     --thread ~{threads}
 
+    mkdir fastp
+    mv *fq.gz fastp/
+    mv ~{sample_name}.fastp.html fastp/
+    mv ~{sample_name}.fastp.json fastp/
+
   >>>
 
   output {
 
-    File trimmed_r1 = "~{sample_name}.R1.fastp.fq.gz"
-    File trimmed_r2 = "~{sample_name}.R2.fastp.fq.gz"
+    File trimmed_r1 = "fastp/~{sample_name}.R1.fastp.fq.gz"
+    File trimmed_r2 = "fastp/~{sample_name}.R2.fastp.fq.gz"
 
-    File html_report = "~{sample_name}.fastp.html"
-    File json_report = "~{sample_name}.fastp.json"
+    File html_report = "fastp/~{sample_name}.fastp.html"
+    File json_report = "fastp/~{sample_name}.fastp.json"
 
   }
 
