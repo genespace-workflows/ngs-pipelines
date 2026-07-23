@@ -1,0 +1,14 @@
+version: 1.2
+
+workflows:
+  - name: brca-workflow
+    subclass: WDL
+    primaryDescriptorPath: /pipelines/brca/wdl/workflows/brca.wdl
+    testParameterFiles:
+      - /pipelines/brca/wdl/inputs/test.brca.json
+    readMePath: /pipelines/brca/README.md
+    topic:
+    authors:
+      - name: Semyon Kolmykov
+        email: semyonk@biosoft.ru
+    topic: Germline and somatic variant calling workflow for targeted BRCA1/BRCA2 sequencing
