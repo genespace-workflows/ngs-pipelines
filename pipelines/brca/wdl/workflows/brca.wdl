@@ -119,8 +119,6 @@ workflow BRCA_full_wf {
       ram_g = ram_g
   }
 
-
-## TODO: перенести вызовы тасок в отдельные ворклоу somatic и germline
 call bcftools_tasks.FilterGermlineVariants {
   input:
     input_vcf = germline_wf.deepvariant_vcf_gz,
