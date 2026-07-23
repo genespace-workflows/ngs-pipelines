@@ -1,8 +1,7 @@
 version: 1.2
-
 workflows:
-  - name: brca-workflow
-    subclass: WDL
+  - subclass: WDL
+    name: brca-workflow
     primaryDescriptorPath: /pipelines/brca/wdl/workflows/brca.wdl
     testParameterFiles:
       - /pipelines/brca/wdl/inputs/test.brca.json
