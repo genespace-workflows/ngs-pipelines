@@ -7,7 +7,6 @@ workflows:
     testParameterFiles:
       - /pipelines/brca/wdl/inputs/test.brca.json
     readMePath: /pipelines/brca/README.md
-    topic:
     authors:
       - name: Semyon Kolmykov
         email: semyonk@biosoft.ru
