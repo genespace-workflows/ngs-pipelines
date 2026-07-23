@@ -9,11 +9,23 @@ wd=$(pwd)
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 cd "$REPO_ROOT"
 
+date=$(date +%d.%m.%Y_%H-%M-%S)
+options_json=pipelines/brca/wdl/options/tmp.$date.options.json
+
+cat > $options_json << EOF
+{
+  "read_from_cache": true,
+  "write_to_cache": true,
+  "final_workflow_outputs_dir": "pipelines/brca/wdl/results/BRCA_wf_$date",
+  "use_relative_output_paths": true
+}
+EOF
+
 java -Dconfig.file=conf/cromwell/local.conf \
   -jar $CROMWELL_JAR \
   run pipelines/brca/wdl/workflows/brca.wdl \
   -i pipelines/brca/wdl/inputs/test.brca.json \
-  -o pipelines/brca/wdl/options/local.options.json \
-   2>&1 | tee pipelines/brca/wdl/logs/brca_test_$(date +%Y%m%d_%H%M%S).log
+  -o $options_json \
+   2>&1 | tee pipelines/brca/wdl/logs/brca_test_$date.log
 
 cd $wd
